@@ -16,6 +16,7 @@ import cn.uestc.dao.AdminJDBCTemplate;
 import cn.uestc.dao.Person;
 import cn.uestc.utils.*;
 import java.util.Date;
+import java.util.TimeZone;
 import java.text.SimpleDateFormat;
 @Controller
 public class MainController {
@@ -32,6 +33,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
@@ -110,6 +112,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
@@ -160,6 +163,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
@@ -199,6 +203,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
@@ -259,6 +264,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
@@ -301,6 +307,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
@@ -329,6 +336,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
@@ -370,6 +378,7 @@ public class MainController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		request.setCharacterEncoding("UTF-8");
 		Gson gson = new Gson();
 		Writer out = response.getWriter();
