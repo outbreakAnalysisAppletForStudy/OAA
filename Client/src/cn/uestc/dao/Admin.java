@@ -39,7 +39,11 @@ public class Admin {//¹ÜÀíÔ±
 	}
 	//ÑéÖ¤ÊÖ»úºÅÊÇ·ñÕıÈ·
 	public boolean validateTel(String tel) {
+<<<<<<< HEAD
 		String regex = "^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$";
+=======
+		String regex = "^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\\d{8}$";
+>>>>>>> a917d8e... cbhç¬¬ä¸€æ¬¡æäº¤
 		return tel.matches(regex);
 	}
 	//md5Éú³Éhashcode
