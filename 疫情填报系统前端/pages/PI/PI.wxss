@@ -1,0 +1,24 @@
+/* pages/PI/PI.wxss */
+.section__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.input-text{
+    border-style:solid;
+    background-color: #ffffff;
+    border-color:#aaaca6;
+    border-radius: 5px;
+}
+.btn-area{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.button{
+  float: left;
+  width: 200rpx;
+  margin: 50rpx;
+}

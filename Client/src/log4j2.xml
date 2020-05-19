@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF" monitorInterval="1800">
+    <properties>
+        <property name="LOG_HOME">/logs/Client</property>
+        <property name="FILE_NAME">Client</property>
+    </properties>
+
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+        	<ThresholdFilter level="warn" />
+            <PatternLayout pattern="[%-5level] %d{HH:mm:ss.SSS} [%t] %logger{36} - %msg%n" />
+        </Console>
+
+        <RollingFile name="running-log" fileName="${LOG_HOME}/${FILE_NAME}.log"
+            filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log"
+            immediateFlush="true">
+            <ThresholdFilter level="info" />
+            <PatternLayout
+                pattern="[%level] %date{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%file:%line] - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval = "4 hour"/>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingFile>
+        
+        <RollingFile name="running-log-error" fileName="${LOG_HOME}/${FILE_NAME}_error.log"
+            filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log"
+            immediateFlush="true">
+            <ThresholdFilter level="error" />
+            <PatternLayout
+                pattern="[%level] %date{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%file:%line] - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval = "4 hour"/>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingFile>
+    </Appenders>
+    
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="running-log-error" />
+            <AppenderRef ref="running-log" />
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>

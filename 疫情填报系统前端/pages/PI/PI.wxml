@@ -1,0 +1,11 @@
+<!--pages/PI/PI.wxml-->
+<view class="container">
+    <form>
+      <view class="section__title">身份证号:</view>
+      <input type="text" class="input-text" name="IDNum" id="IDNum" placeholder="请输入身份证号" bindinput="setIDNum" />
+      <view class="btn-area">
+        <button form-type="submit" class="button" bindtap="cx">查询</button>
+        <button form-type="reset" class="button">重置</button>
+      </view> 
+    </form>
+</view>
