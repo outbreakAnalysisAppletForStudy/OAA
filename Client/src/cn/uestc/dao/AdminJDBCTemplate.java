@@ -1,5 +1,6 @@
 package cn.uestc.dao;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -200,7 +201,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 		}
 	}
 	//疫情上报，把人员存入cases病例表   这里area是["成都市","郫县"]这样格式的
-	public boolean reportPerson(Person person) {
+	public boolean reportPerson(Person person) throws IOException{
 		String date = person.getDate();
 		String id = person.getId();
 		String tel = person.getTel();
@@ -212,7 +213,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 		String name1 = area.split(",")[0],name2 = area.split(",")[1],name3 = area.split(",")[2];
 		logger.info("reportPerson: name1: "+name1);
 		jdbc.update("insert into test(area) values(?)",area);
-		String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,name1);
+		String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,new String(name1.getBytes("ISO-8859-1"),"UTF-8"));
 		String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name2,(area1.substring(0,2)+"%"));
 		String area3 = jdbc.queryForObject("select area from county where name = ? and area like ?",String.class,name3,(area2.substring(0,4)+"%"));
 		person.setArea(area3);
