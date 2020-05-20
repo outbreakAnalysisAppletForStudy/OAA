@@ -31,7 +31,7 @@ public interface AdminDAO {
 	//管理员操作时，查找对应session，如果session存在，返回admin，否则返回的admin id为空,并且更新时间
 	public Admin returnSession(String session,String time);
 	//疫情上报，把人员存入cases病例表   这里area是["成都市","郫县"]这样格式的
-	public boolean reportPerson(Person person)throws IOException;
+	public boolean reportPerson(Person person);
 	//个人信息查询，若查询成功，返回person，否则person的id字段为空
 	public Person personInfoGet(String id);
 	//指派下级管理员 返回false表示管理员已存在，成功返回true
