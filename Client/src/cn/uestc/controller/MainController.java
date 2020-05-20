@@ -211,8 +211,7 @@ public class MainController {
 		//解析请求
 		String id = request.getParameter("id");
 		String tel = request.getParameter("tel");
-		//这里area是["成都市","郫县"]这样格式的
-		String area =new String(request.getParameter("area").getBytes("ISO-8859-1"),"UTF-8");
+		String area = request.getParameter("area");//这里area是["成都市","郫县"]这样格式的
 		System.out.println("area:"+area);
 		String pos = request.getParameter("pos");
 		int perStatus = Integer.parseInt(request.getParameter("perStatus"));
