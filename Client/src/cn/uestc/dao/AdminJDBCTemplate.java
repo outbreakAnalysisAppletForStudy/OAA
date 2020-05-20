@@ -213,9 +213,10 @@ public class AdminJDBCTemplate implements AdminDAO {
 		String name1 = area.split(",")[0],name2 = area.split(",")[1],name3 = area.split(",")[2];
 		logger.info("reportPerson: name1: "+name1);
 		jdbc.update("insert into test(area) values(?)",area);
-		String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,new String(name1.getBytes("ISO-8859-1"),"UTF-8"));
-		String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name2,(area1.substring(0,2)+"%"));
-		String area3 = jdbc.queryForObject("select area from county where name = ? and area like ?",String.class,name3,(area2.substring(0,4)+"%"));
+		String SQL = "select area from province where name = " + name1;
+		String area1 = jdbc.queryForObject(SQL,String.class);
+		String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,new String(name2.getBytes("ISO-8859-1"),"UTF-8"),(area1.substring(0,2)+"%"));
+		String area3 = jdbc.queryForObject("select area from county where name = ? and area like ?",String.class,new String(name3.getBytes("ISO-8859-1"),"UTF-8"),(area2.substring(0,4)+"%"));
 		person.setArea(area3);
 		String adminArea = jdbc.queryForObject("select area from administrators where id = ?", String.class,submit);
 		int level = jdbc.queryForObject("select level from administrators where id = ?",int.class,submit);
