@@ -44,10 +44,10 @@ Page({
         duration: 2000
       })
       wx.request({
-        url: 'http://localhost:8080/Client/getNationInfo',
-        method: 'POST',
+        url: 'https://app.damaoooo.cf/getNationInfo',
+        method: 'GET',
       header:{
-        'content-type':'application/x-www-form-urlencoded'
+        'content-type':'application/json'
       },
         data: {
           "token": "DEEPDARKFANTASY"
@@ -81,10 +81,10 @@ Page({
     */
     var that =this
     wx.request({
-      url: 'http://localhost:8080/Client/getAreaInfo',
-      method: 'POST',
+      url: 'https://app.damaoooo.cf/getAreaInfo',
+      method: 'GET',
       header:{
-        'content-type':'application/x-www-form-urlencoded'
+        'content-type':'application/json'
       },
       data: {
         'sessionKey': app.globalData.sessionkey

@@ -107,7 +107,7 @@ Page({
       sessionkey: app.globalData.sessionkey
     })
     wx.request({
-      url: 'http://localhost:8080/Client/newBind',
+      url: 'https://app.damaoooo.cf/newBind',
       method: 'POST',
       header:{
         'content-type':'application/x-www-form-urlencoded'

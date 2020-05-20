@@ -87,10 +87,10 @@ Page({
     app.globalData.incrData = this.data.incrData;
     */
     wx.request({
-      url: 'http://localhost:8080/Client/getNationInfo',
-      method: 'POST',
+      url: 'https://app.damaoooo.cf/getNationInfo',
+      method: 'GET',
       header:{
-        'content-type':'application/x-www-form-urlencoded'
+        'content-type':'application/json'
       },
       data:{
         "token": "DEEPDARKFANTASY"

@@ -104,7 +104,7 @@ Page({
     })
     */
     wx.request({
-      url: 'http://localhost:8080/Client/login',
+      url: 'https://app.damaoooo.cf/login',
       method: 'POST',
       header:{
         'content-type':'application/x-www-form-urlencoded'

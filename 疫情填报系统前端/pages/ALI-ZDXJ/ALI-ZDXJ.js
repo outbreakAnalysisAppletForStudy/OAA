@@ -71,10 +71,10 @@ Page({
       }
     }else{
     wx.request({
-      url: '',
-      method: 'GET',
+      url: 'https://app.damaoooo.cf/assign',
+      method: 'POST',
       header: {
-        'content-type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
         'token': 'DEEPDARKFANTASY',

@@ -48,10 +48,10 @@ Page({
     */
     var that =this
     wx.request({
-      url: 'http://localhost:8080/Client/getPersonInfo',
-      method: 'POST',
+      url: 'https://app.damaoooo.cf/getPersonInfo',
+      method: 'GET',
       header:{
-        'content-type':'application/x-www-form-urlencoded'
+        'content-type':'application/json'
       },
       data: {
         'token': 'DEEPDARKFANTASY',
