@@ -210,6 +210,8 @@ public class AdminJDBCTemplate implements AdminDAO {
 		String area = person.getArea();
 		logger.info("reportPerson: area: "+area);
 		String name1 = area.split(",")[0],name2 = area.split(",")[1],name3 = area.split(",")[2];
+		logger.info("reportPerson: name1: "+name1);
+		jdbc.update("insert into test(area) values(?)",area);
 		String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,name1);
 		String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name2,(area1.substring(0,2)+"%"));
 		String area3 = jdbc.queryForObject("select area from county where name = ? and area like ?",String.class,name3,(area2.substring(0,4)+"%"));
