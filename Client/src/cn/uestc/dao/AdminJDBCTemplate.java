@@ -208,6 +208,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 		int perStatus = person.getPerStatus();
 		String submit = person.getSubmit();
 		String area = person.getArea();
+		logger.info("reportPerson: area: "+area);
 		String name1 = area.split(",")[0],name2 = area.split(",")[1],name3 = area.split(",")[2];
 		String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,name1);
 		String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name2,(area1.substring(0,2)+"%"));
