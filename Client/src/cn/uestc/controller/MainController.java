@@ -430,5 +430,28 @@ public class MainController {
 		out.write(json);
 		out.flush();
 	}
-	
+	/*
+	@RequestMapping(value="/test")
+	public void testController(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException {
+		//操作数据库
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+		AdminJDBCTemplate ajt = (AdminJDBCTemplate) context.getBean("adminJDBCTemplate");
+		//响应设置
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		//响应json部分
+		df.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+		request.setCharacterEncoding("UTF-8");
+		Gson gson = new Gson();
+		Writer out = response.getWriter();
+		Login jsonObject = new Login();
+		String name = request.getParameter("name");
+		System.out.println(name);
+		ajt.test(name);
+		jsonObject.setMessage(name);
+		String json = gson.toJson(jsonObject);
+		out.write(json);
+		out.flush();
+	}
+	*/
 }
