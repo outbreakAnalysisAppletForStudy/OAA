@@ -42,4 +42,8 @@ public interface AdminDAO {
 	public GetAreaInfo areaInfoGet(Admin admin,String time,String session);
 	//返回管理员部分信息
 	public AdminInfo returnAdminInfo(String id,String tel);
+	/*
+	//测试和数据库的编码
+	public void test(String name)throws IOException;
+	*/
 }

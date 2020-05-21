@@ -1,5 +1,7 @@
 package cn.uestc.dao;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -56,8 +58,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 		}
 		else { //绑定成功
 			logger.info("The id (" + id + ") binded successfully.");
-			String SQL1 = "update administrators set name = \""+name+"\" where id = ? and tel = ? and hashcode = ?";
-			jdbc.update(SQL1,name,id,tel,hashcode);
+			jdbc.update("update administrators set name = ? where id = ? and tel = ? and hashcode = ?",name,id,tel,hashcode);
 			String SQL2 = "select level from administrators where id = ? and tel = ? and hashcode = ?";
 			return jdbc.queryForObject(SQL2, int.class,id,tel,hashcode);
 		}
@@ -143,8 +144,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 	public boolean newBindCompleteSession(String id,String tel,String session,String name,int level,String time) {
 		String area = jdbc.queryForObject("select area from administrators where id = ? and tel = ? and level = ?",String.class,id,tel,level);
 		//补全更新session表
-		String sql = "update sessions set name = \""+name+"\""+",area = ?,level = ?,time = ? where session = ?";
-		int cnt1 = jdbc.update(sql,area,level,time,session);
+		int cnt1 = jdbc.update("update sessions set name = ?,area = ?,level = ?,time = ? where session = ?",name,area,level,time,session);
 		if(cnt1 != 0) {
 			System.out.println("补全更新session表成功!");
 			logger.info("The session table was completed with the session(" + session + ".");
@@ -154,8 +154,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 			return false;
 		}
 		//补全更新administrators表
-		sql = "update administrators set name = \""+name+"\""+" where id = ? and tel = ?";
-		int cnt2 = jdbc.update(sql,id,tel);
+		int cnt2 = jdbc.update("update administrators set name = ? where id = ? and tel = ?",name,id,tel);
 		if(cnt2 != 0) {
 			logger.info("The administrators table was completed with the session(" + session + ".");
 			System.out.println("补全更新administrators表成功!");
@@ -202,7 +201,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 		}
 	}
 	//疫情上报，把人员存入cases病例表   这里area是["成都市","郫县"]这样格式的
-	public boolean reportPerson(Person person){
+	public boolean reportPerson(Person person) {
 		String date = person.getDate();
 		String id = person.getId();
 		String tel = person.getTel();
@@ -211,12 +210,9 @@ public class AdminJDBCTemplate implements AdminDAO {
 		String submit = person.getSubmit();
 		String area = person.getArea();
 		String name1 = area.split(",")[0],name2 = area.split(",")[1],name3 = area.split(",")[2];
-		String SQL = "select area from province where name = \"" + name1 + "\"";
-		String area1 = jdbc.queryForObject(SQL,String.class);
-		SQL = "select area from province where name = \"" + name2 + "\"" + " and area like ?";
-		String area2 = jdbc.queryForObject(SQL,String.class,(area1.substring(0,2)+"%"));
-		SQL = "select area from province where name = \"" + name3 + "\"" + " and area like ?";
-		String area3 = jdbc.queryForObject(SQL,String.class,(area2.substring(0,4)+"%"));
+		String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,name1);
+		String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name2,(area1.substring(0,2)+"%"));
+		String area3 = jdbc.queryForObject("select area from county where name = ? and area like ?",String.class,name3,(area2.substring(0,4)+"%"));
 		person.setArea(area3);
 		String adminArea = jdbc.queryForObject("select area from administrators where id = ?", String.class,submit);
 		int level = jdbc.queryForObject("select level from administrators where id = ?",int.class,submit);
@@ -236,7 +232,7 @@ public class AdminJDBCTemplate implements AdminDAO {
 				System.out.println("疫情填报错误：管理员权限不够");
 			}
 		}
-		jdbc.update("insert into cases(date,id,area,tel,perStatus,submit,pos) values(?,?,?,?,?,?,\""+pos+"\")",date,id,person.getArea(),tel,perStatus,submit);
+		jdbc.update("insert into cases(date,id,area,tel,perStatus,submit,pos) values(?,?,?,?,?,?,?)",date,id,person.getArea(),tel,perStatus,submit,pos);
 		System.out.println("疫情上报：");
 		person.output();
 		logger.info("The case (id:" + person.getId() +") was reported.");
@@ -271,20 +267,20 @@ public class AdminJDBCTemplate implements AdminDAO {
 		String area = newAdmin.getArea();
 		if(newAdmin.getLevel() == 2) {
 			String name1 = area.split(",")[0];
-			String area1 = jdbc.queryForObject("select area from province where name = \""+name1+"\"",String.class);
+			String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,name1);
 			newAdmin.setArea(area1);
 		}
 		else if(newAdmin.getLevel() == 3) {
 			String name1 = area.split(",")[0],name2 = area.split(",")[1];
-			String area1 = jdbc.queryForObject("select area from province where name = \""+name1+"\"",String.class);
-			String area2 = jdbc.queryForObject("select area from city where name = \""+name2+"\" and area like ?",String.class,(area1.substring(0,2)+"%"));
+			String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,name1);
+			String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name2,(area1.substring(0,2)+"%"));
 			newAdmin.setArea(area2);
 		}
 		else if(newAdmin.getLevel() == 4) {
 			String name1 = area.split(",")[0],name2 = area.split(",")[1],name3 = area.split(",")[2];
-			String area1 = jdbc.queryForObject("select area from province where name = \""+name1+"\"",String.class);
-			String area2 = jdbc.queryForObject("select area from city where name = \""+name2+"\" and area like ?",String.class,(area1.substring(0,2)+"%"));
-			String area3 = jdbc.queryForObject("select area from city where name = \""+name3+"\" and area like ?",String.class,(area2.substring(0,2)+"%"));
+			String area1 = jdbc.queryForObject("select area from province where name = ?",String.class,name1);
+			String area2 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name2,(area1.substring(0,2)+"%"));
+			String area3 = jdbc.queryForObject("select area from city where name = ? and area like ?",String.class,name3,(area2.substring(0,2)+"%"));
 			newAdmin.setArea(area3);
 		}
 		jdbc.update("update sessions set time = ? where session = ?",time,session);
@@ -417,5 +413,23 @@ public class AdminJDBCTemplate implements AdminDAO {
 		adminInfo.setArea(area);
 		return adminInfo;
 	}
-	
+	/*
+	//测试和数据库的编码
+	public void test(String name) throws IOException{
+		jdbc.update("insert into test(area) values(?)",name);
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("UTF-8"),"UTF-8"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("latin1"),"latin1"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("GB2312"),"latin1"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("GBK"),"latin1"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("UTF-8"),"latin1"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("GB2312"),"UTF-8"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("GBK"),"UTF-8"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("GBK"),"GBK"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("ISO-8859-1"),"UTF-8"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("ISO-8859-1"),"GBK"));
+		jdbc.update("insert into test(area) values(?)",new String(name.getBytes("ISO-8859-1"),"GB2312"));
+		//System.out.println(jdbc.queryForObject("select area from test where time = ?", String.class,"2020-05-21 13:49:12"));
+		System.out.println(Arrays.toString(name.getBytes("UTF-8")));
+	}
+	*/
 }

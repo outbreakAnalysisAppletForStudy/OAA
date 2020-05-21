@@ -1,0 +1,5 @@
+<!--pages/NI-ZX/NI-ZX.wxml-->
+<import src="../template/tabBar.wxml"/> 
+<template is="tabBar" data="{{tabBar}}"/>
+<view class='title'>全国累计确诊地图</view>
+<ec-canvas id="mychart-dom-map" canvas-id="mychart-map" ec="{{ecmap}}"></ec-canvas>
