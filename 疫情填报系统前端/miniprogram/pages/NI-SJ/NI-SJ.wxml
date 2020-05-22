@@ -11,6 +11,15 @@
     <view class="th">治愈</view>
     <view class="th">疑似</view>
   </view>
+    <view class="tr bg-g">
+      <view class="td"></view>
+      <view class="td"></view>
+      <view class="td"></view>
+      <view class="td"></view>
+      <view class="td"></view>
+      <view class="td"></view>
+      <view class="td"></view>
+ </view>
   <block wx:for="{{listData}}" wx:key="province">
     <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
       <view class="td">{{item.detail.name}}</view>
