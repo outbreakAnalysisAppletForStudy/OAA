@@ -220,24 +220,39 @@ public class AdminJDBCTemplate implements AdminDAO {
 		else if(level == 2) {
 			if(adminArea.substring(0,2).equals(area3.substring(0,2)) == false) {
 				System.out.println("疫情填报错误：管理员权限不够");
+				return false;
 			}
 		}
 		else if(level == 3) {
 			if(adminArea.substring(0,4).equals(area3.substring(0,4)) == false) {
 				System.out.println("疫情填报错误：管理员权限不够");
+				return false;
 			}
 		}
 		else {
 			if(adminArea.substring(0,6).equals(area3.substring(0,6)) == false) {
 				System.out.println("疫情填报错误：管理员权限不够");
+				return false;
 			}
 		}
-		jdbc.update("insert into cases(date,id,area,tel,perStatus,submit,pos) values(?,?,?,?,?,?,?)",date,id,person.getArea(),tel,perStatus,submit,pos);
-		System.out.println("疫情上报：");
-		person.output();
-		logger.info("The case (id:" + person.getId() +") was reported.");
-		return true;
+		int cnt = jdbc.queryForObject("select count(*) from cases where id = ?",int.class,id);
+		if(cnt == 0) {
+			jdbc.update("insert into cases(date,id,area,tel,perStatus,submit,pos) values(?,?,?,?,?,?,?)",date,id,person.getArea(),tel,perStatus,submit,pos);
+			System.out.println("疫情上报：");
+			person.output();
+			logger.info("The case (id:" + person.getId() +") was reported.");
+			return true;
+		}
+		else 
+		{
+			jdbc.update("update from cases set date=?,area=?,tel=?,perStatus=?,submit=?,pos=? where id = ?",date,person.getArea(),tel,perStatus,submit,pos,id);
+			System.out.println("疫情上报：");
+			person.output();
+			logger.info("The case (id:" + person.getId() +") was reported.");
+			return true;
+		}
 	}
+	
 	//个人信息查询，若查询成功，返回person，否则person的id字段为空
 	public Person personInfoGet(String id){
 		Person person = new Person();

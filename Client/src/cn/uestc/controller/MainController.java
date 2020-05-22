@@ -245,9 +245,15 @@ public class MainController {
 			person.setPos(pos);
 			person.setSubmit(admin.getId());
 			person.setDate(time.split(" ")[0]);
-			ajt.reportPerson(person);
-			jsonObject.setCode(0);
-			jsonObject.setMessage("success");
+			boolean judge = ajt.reportPerson(person);
+			if(judge == true) {
+				jsonObject.setCode(0);
+				jsonObject.setMessage("success");
+			}
+			else {
+				jsonObject.setCode(2);
+				jsonObject.setMessage("管理员权限不够");
+			}
 		}
 		//
 		String json =gson.toJson(jsonObject);
