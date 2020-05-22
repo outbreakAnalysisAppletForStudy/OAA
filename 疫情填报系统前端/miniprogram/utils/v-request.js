@@ -1,38 +1,42 @@
-wx.cloud.init({
-  env: 'one-ibdt4',
-  traceUser: true
-})
 wx.vrequest = function (options) {
   // 默认配置
   const OPT = Object.assign({
-    method: 'GET',
     dataType: 'json',
     responseType: 'text'
   }, options);
 
   // 默认header
-  OPT['header'] = Object.assign({
-    'Content-Type': 'application/json',
-    'UserAgent': 'github@guren-cloud/v-request 20181229'
-  }, options.header);
+ // OPT['header'] = Object.assign({
+  //  'content-type': 'application/json',
+  //}, options.header);
 
   // 发送的数据
   // 如果data是string,对应request模块的body（buffer、string）
   // 如果是object，则为json，对应request模块的json
+  var vrequest_data = ""
+  for (let k in options.data) {
+    vrequest_data += k;
+    vrequest_data += "=";
+    vrequest_data += encodeURIComponent(options.data[k]);
+    vrequest_data += "&";
+  }
   let POST_DATA = {
-    body: options.data
+    body: vrequest_data
   };
-  if (typeof options.data === 'object') POST_DATA['body'] = JSON.stringify(POST_DATA['body']);
-
+ 
+  if (typeof options.data == 'object')
+  POST_DATA['body'] = JSON.stringify(POST_DATA['body']);
+  console.log(POST_DATA['body'])
   // 开始请求
   return new Promise((RES, REJ) => {
     wx.cloud.callFunction({
       name: 'v-request',
       data: {
         options: Object.assign({
-          url: options.url,
-          method: OPT['method'],
-          headers: OPT['header']
+          url: options.url + '?' + vrequest_data,
+          data: vrequest_data,
+          method: options.method,
+          headers: options.header
         }, POST_DATA)
       },
       success: res => {
@@ -49,7 +53,7 @@ wx.vrequest = function (options) {
           // 否则为text数据
           data = result.body;
         }
-
+        console.log(result.body)
         const RETURN_DATA = {
           data,
           errMsg: 'request:ok',

@@ -1,11 +1,11 @@
 module.exports = {
   url: {
-    'login': 'https://app.damaoooo.cf/login',
-    'newBind': 'https://app.damaoooo.cf/newBind',
-    'report': 'https://app.damaoooo.cf/report',
-    'getPersonInfo': 'https://app.damaoooo.cf/getPersonInfo',
-    'getNationInfo': 'https://app.damaoooo.cf/getNationInfo',
-    'getAreaInfo': 'https://app.damaoooo.cf/getAreaInfo',
-    'assign': 'https://app.damaoooo.cf/assign',
+    'login': 'https://app.kunqueen.xyz/login',
+    'newBind': 'https://app.kunqueen.xyz/newBind',
+    'report': 'https://app.kunqueen.xyz/report',
+    'getPersonInfo': 'https://app.kunqueen.xyz/getPersonInfo',
+    'getNationInfo': 'https://app.kunqueen.xyz/getNationInfo',
+    'getAreaInfo': 'https://app.kunqueen.xyz/getAreaInfo',
+    'assign': 'https://app.kunqueen.xyz/assign',
   },
 }

@@ -93,9 +93,18 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          wx.navigateTo({
-            url: '../ALI/ALI'
-          })
+          wx.navigateBack({
+            delta: 1, // 回退前 delta(默认为1) 页面 
+            success: function (res) {
+              // success 
+            },
+            fail: function () {
+              // fail 
+            },
+            complete: function () {
+              // complete 
+            }
+          }) 
         }
         if (res.data.code == 1) {
           wx.showToast({
