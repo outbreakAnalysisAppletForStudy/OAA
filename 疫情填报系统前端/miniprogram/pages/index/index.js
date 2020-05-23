@@ -5,6 +5,7 @@ const url = require('../../utils/url.js')
 Page({
   data: {
     motto: 'Hello World',
+    load:true,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -75,6 +76,13 @@ Page({
       url: '../PI/PI'
     })
   },
+  fff:function(){
+      wx.showToast({
+        title: '加载中',
+        icon: 'loading',
+        duration: 10000
+      })
+  },
   NationInformation:function(){
     /**
      * 下面测试跳转，请删掉
@@ -88,6 +96,7 @@ Page({
     */
 
     //console.log(123)
+    var that =this
     wx.request({
       url: url.url.getNationInfo,
       method: 'GET',

@@ -35,15 +35,24 @@ Page({
       })
    }
   },
-
-  XQCX: function (e) {
-    if (app.globalData.adminInfo.level==1){
-    //if (this.data.level == 1) {
+  fff:function(){
+    if (app.globalData.adminInfo.level == 1) {
+      //if (this.data.level == 1) {
       wx.showToast({
         title: '您是最高管理员！',
         icon: 'loading',
-        duration: 2000
+        duration: 10000
       })
+    }
+  },
+  XQCX: function (e) {
+    if (app.globalData.adminInfo.level==1){
+    //if (this.data.level == 1) {
+     // wx.showToast({
+       // title: '您是最高管理员！',
+       // icon: 'loading',
+       // duration: 2000
+     // })
       wx.request({
         url:url.url.getNationInfo,
         method: 'GET',

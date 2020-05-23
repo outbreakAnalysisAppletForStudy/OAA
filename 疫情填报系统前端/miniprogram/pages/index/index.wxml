@@ -3,6 +3,8 @@
   <text class="mytext">疫情填报系统</text>
   <button bindtap="AdLogIn" class="mybutton" hover-class="mybutton-hover">管理人员登陆</button>
   <button bindtap="PersonalInformation" class="mybutton" hover-class="mybutton-hover">个人信息查询</button>
-  <button bindtap="NationInformation" class="mybutton" hover-class="mybutton-hover">全国信息查询</button>
+  <view catchtap="fff">
+  <button  bindtap="NationInformation" class="mybutton" hover-class="mybutton-hover">全国信息查询</button>
+  </view>
   <image  class="myimage" src="/images/index.png"></image>
 </view>

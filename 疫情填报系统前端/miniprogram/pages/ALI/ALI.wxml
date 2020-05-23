@@ -3,6 +3,9 @@
   <text class="mytext">疫情填报管理</text>
   <button bindtap="ZDXJ" class="mybutton" hover-class="mybutton-hover">指派下级管理</button>
   <button bindtap="YQTB" class="mybutton" hover-class="mybutton-hover">疫情填报</button>
+  <view catchtap="fff">
   <button bindtap="XQCX" class="mybutton" hover-class="mybutton-hover">辖区查询</button>
+  </view>
+  
   <image  class="myimage" src="/images/ALI.png"></image>
 </view>
