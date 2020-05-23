@@ -17,13 +17,8 @@ page{
   width: 32%;  
   float: left;  
   text-align: center;  
-  padding-top: 8px;  
-}  
-.menu-item1{  
-  width: 24%;  
-  float: left;  
-  text-align: center;  
-  padding-top: 8px;  
+  padding-top: 8rpx; 
+  border-bottom: 1%  #F25F5C; 
 }  
 .img{ 
   width: 23px;  
@@ -35,12 +30,10 @@ page{
   clear: both;  
 }  
 .tab-bar{  
+
   background-color: #ffffff;
   height:10%;
   position: fixed;  
   width: 100%;  
-  padding: 0px 2%;  
+  padding: 0 2%;  
 }  
-.button{
-  margin: 130px;
-}

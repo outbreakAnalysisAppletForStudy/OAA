@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f25f5c",
+    "navigationBarTitleText": "新管理员绑定",
+    "navigationBarTextStyle": "black"
 }

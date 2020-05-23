@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#f25f5c",
+  "navigationBarTitleText": "指派下级管理员",
+  "navigationBarTextStyle": "black"
 }

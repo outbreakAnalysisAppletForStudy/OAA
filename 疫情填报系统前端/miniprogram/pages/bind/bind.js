@@ -15,7 +15,9 @@ Page({
     HashCode:'',
     sessionkey:'',
     isFinish: true,
-    nickName: ''
+    nickName: '',
+    userpng: "/images/login.png",
+    username: 'username'
   },
   //事件处理函数
   bindViewTap: function () {
@@ -31,7 +33,9 @@ Page({
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasUserInfo: true,
+        userpng: app.globalData.userInfo.avatarUrl,
+        username: app.globalData.userInfo.nickName
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -60,7 +64,9 @@ Page({
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      hasUserInfo: true,
+      userpng: app.globalData.userInfo.avatarUrl,
+      username: app.globalData.userInfo.nickName
     })
   },
   /*获取姓名*/

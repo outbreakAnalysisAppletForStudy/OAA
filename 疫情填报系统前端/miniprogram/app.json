@@ -15,9 +15,9 @@
     "pages/PI-res/PI-res"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#81b7ff",
-    "navigationBarTitleText": "疫情填报",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "疫情填报系统",
     "navigationBarTextStyle": "black"
   },
   "permission": {

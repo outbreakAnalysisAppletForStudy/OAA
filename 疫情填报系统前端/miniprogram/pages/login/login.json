@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#f25f5c",
+  "navigationBarTitleText": "管理员登陆",
+  "navigationBarTextStyle": "black"
 }

@@ -1,41 +1,86 @@
 /* pages/log/log.wxss */
 
-.section {
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50rpx;
-}
-.input{
-  border-style:solid;
+.container1 {
+  padding-top: 100rpx;
+  background-color:#f25f5c;
+  height: 100%;
+  width: 100%;
+} 
+
+.userinfo-avatar1 {
   background-color: #ffffff;
-  border-color:#aaaca6;
-  border-radius: 5px;
-  margin-bottom: 50rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  display:flex; 
+  margin-left: 38%;
+  justify-content:center;
 }
-.button1{
-  width: 200rpx;
-  margin: 50rpx;
-  font-size: 77%;
+.userinfo-nickname {
+  color: #ffffff;
+  font-size: 50rpx;
+  font-weight: bold;
+  display:flex; 
+  padding-bottom: 2%;
+  justify-content:center;
+}
+.mytext{
+  color: #ffffff;
+  font-size: 70rpx;
+  font-weight: bold;
+  display:flex; 
+  padding-bottom: 100rpx;
+  justify-content:center;
 }
 .button{
-  width: 200rpx;
-  margin: 100rpx;
+  background-color: #ffffff;
+  color: #F25F5C;
+  border: 5rpx solid #F25F5C; 
+  margin: 1%;
+  border-radius: 110rpx;  
+  margin-bottom: 150rpx;
 }
-.userinfo {
-  flex-direction: column;
+.mybutton-hover{
+  background-color: #F25F5C;
+  color: #ffffff;
+  border: 5rpx solid #ffffff; 
+  margin: 1%;
+  border-radius: 110rpx;  
+  margin-bottom: 150rpx;
+}
+.input-text{
+  width: 70%;
+  padding-top: 4%;
+  margin-left: 15%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  height: 6%;
   align-items: center;
+  background-color: #ffffff;
+  border-radius: 30rpx;
 }
-
-.userinfo-avatar {
-  display:flex;
-  text-align:center;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.input-text1{
+  margin-left: 7%;
+  margin-right: 7%;
+  height: 70%;
+  border-bottom-style: solid;
+  border-bottom-color: #b4b4b4;
+  align-items: center;
+  background-color: #ffffff;
 }
-
-.userinfo-nickname {
-  display:flex;
-  color: rgb(17, 11, 11);
+.button1{
+  background-color: #ffffff;
+  color: #F25F5C;
+  border: 5rpx solid #F25F5C; 
+  margin: 1%;
+  border-radius: 110rpx;  
+  margin-top: 80rpx;
+}
+.mybutton-hover1{
+  background-color: #F25F5C;
+  color: #ffffff;
+  border: 5rpx solid #ffffff; 
+  margin: 1%;
+  border-radius: 110rpx;  
+  margin-top: 80rpx;
 }

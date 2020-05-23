@@ -94,7 +94,7 @@ App({
           "iconPath": "/images/111.png",
           "selectedIconPath": "/images/111.png",
           "clas": "menu-item",
-          "selectedColor": "#4EDF80",
+          "selectedColor": "#F25F5C",
           active: true
         },
         {
@@ -102,7 +102,7 @@ App({
           "text": "疫情地图",
           "iconPath": "/images/222.png",
           "selectedIconPath": "/images/222.png",
-          "selectedColor": "#4EDF80",
+          "selectedColor": "#F25F5C",
           "clas": "menu-item",
           active: false
         },
@@ -111,7 +111,7 @@ App({
           "text": "各省数据",
           "iconPath": "/images/333.png",
           "selectedIconPath": "/images/333.png",
-          "selectedColor": "#4EDF80",
+          "selectedColor": "#F25F5C",
           "clas": "menu-item",
           active: false
         }

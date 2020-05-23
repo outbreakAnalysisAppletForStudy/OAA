@@ -1,19 +1,18 @@
 <!--pages/log/log.wxml-->
-<view class="container">
-      <view class="userinfo">
-        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-        <block wx:else>
-          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </block>
-      </view>
-    <view>
+<view class="container1">
+  <text class="mytext">新管理人员绑定</text>
+  <image class="userinfo-avatar1" src="{{userpng}}"></image>
+  <text class="userinfo-nickname">{{username}}</text>
+  <button class="button" hover-class="mybutton-hover" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <form>
-      <view class="section">姓名:</view>
-      <input type="text" class="input" name="Name" id="Name" placeholder="请输入姓名" bindinput="setName" />
-      <view class="section">验证码:</view>
-      <input type="text" class="input" name="HashCode" id="HashCode" placeholder="请输入验证码" bindinput="setHashCode" />
-      <button form-type="submit" class="button" bindtap="bind">绑定</button>
+      <view class="input-text">
+      <input type="text" class="input-text1" name="name" id="name" placeholder="姓名" bindinput="setName" />
+      </view>
+      <view class="input-text">
+      <input type="text" class="input-text1" name="HashCode" id="HashCode" placeholder="验证码" bindinput="setHashCode" />
+      </view>
+      <button form-type="submit" class="button1"hover-class="mybutton-hover1" bindtap="bind">绑定</button>
     </form>
-    </view>
 </view>
+
+      

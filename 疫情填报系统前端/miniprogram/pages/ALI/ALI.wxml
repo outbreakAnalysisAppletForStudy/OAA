@@ -1,12 +1,8 @@
 <!--pages/ALI/ALI.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button bindtap="ZDXJ">指派下级管理</button>
-  </view>
-  <view class="userinfo1">
-    <button bindtap="YQTB">疫情填报</button>
-  </view>
-    <view class="userinfo2">
-    <button bindtap="XQCX">辖区查询</button>
-  </view>
+<view class="container1">
+  <text class="mytext">疫情填报管理</text>
+  <button bindtap="ZDXJ" class="mybutton" hover-class="mybutton-hover">指派下级管理</button>
+  <button bindtap="YQTB" class="mybutton" hover-class="mybutton-hover">疫情填报</button>
+  <button bindtap="XQCX" class="mybutton" hover-class="mybutton-hover">辖区查询</button>
+  <image  class="myimage" src="/images/ALI.png"></image>
 </view>

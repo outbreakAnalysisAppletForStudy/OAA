@@ -1,24 +1,65 @@
 /* pages/PI/PI.wxss */
 .section__title {
   display: flex;
+  margin-left: 15%;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   margin-top: 100rpx;
+  color: #ffffff;
 }
 .input-text{
-    border-style:solid;
-    background-color: #ffffff;
-    border-color:#aaaca6;
-    border-radius: 5px;
+  width: 70%;
+  padding-top: 4%;
+  margin-left: 15%;
+  height: 6%;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 30rpx;
+}
+.input-text1{
+  margin-left: 7%;
+  margin-right: 7%;
+  height: 70%;
+  border-bottom-style: solid;
+  border-bottom-color: #b4b4b4;
+  align-items: center;
+  background-color: #ffffff;
 }
 .btn-area{
-  display: flex;
-  flex-direction: column;
   align-items: center;
   margin-top: 100rpx;
 }
 .button{
-  float: left;
-  width: 200rpx;
+  background-color: #ffffff;
+  color: #F25F5C;
+  border: 5rpx solid #F25F5C; 
   margin: 50rpx;
+  border-radius: 110rpx;  
+}
+.mybutton-hover{
+  background-color: #F25F5C;
+  color: #ffffff;
+  border: 5rpx solid #ffffff; 
+  margin: 50rpx;
+  border-radius: 110rpx;  
+}
+.mytext{
+  color: #ffffff;
+  font-size: 70rpx;
+  font-weight: bold;
+  display:flex; 
+  padding-bottom: 100rpx;
+  justify-content:center;
+}
+.container1{
+  background-color:#F25F5C;
+  padding-top: 200rpx;
+  width: 100%;
+  height: 100%;
+} 
+.myform{
+  align-items: center;
+  justify-content: center;
+  margin-top: 100rpx;
+  width: 100%;
 }

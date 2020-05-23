@@ -1,25 +1,58 @@
 /* pages/ALI-ZDXJ/ALI-ZDXJ.wxss */
-.input{
-  border-style:solid;
-  background-color: #ffffff;
-  border-color:#aaaca6;
-  border-radius: 5px;
-  margin-bottom: 50rpx;
-}
-.button1{
-  width: 200rpx;
-  margin: 50rpx;
-  font-size: 77%;
-}
 .button{
-  width: 200rpx;
-  margin: 100rpx;
-}
-.picker{
-  border-style:solid;
   background-color: #ffffff;
-  border-color:#aaaca6;
-  border-radius: 5px;
-  margin-bottom: 50rpx;
-  width: 430rpx;
+  color: #F25F5C;
+  border: 5rpx solid #F25F5C; 
+  margin: 50rpx;
+  margin-top: 100rpx;
+  border-radius: 110rpx;  
+}
+.mybutton-hover{
+  background-color: #F25F5C;
+  color: #ffffff;
+  border: 5rpx solid #ffffff; 
+  margin: 50rpx;
+  border-radius: 110rpx; 
+  margin-top: 100rpx; 
+}
+.section{
+  margin-top: 30rpx;
+  display: flex;
+  margin-left: 15%;
+  flex-direction: column;
+  align-items: left;
+  color: #ffffff;
+}
+.container1{
+  background-color:#F25F5C;
+  padding-top: 200rpx;
+  width: 100%;
+  height: 100%;
+} 
+.input-text{
+  width: 70%;
+  padding-top: 4%;
+  margin-left: 15%;
+  height: 4%;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 100rpx;
+  border: 5rpx solid #F25F5C; 
+}
+.input-text1{
+  margin-left: 7%;
+  margin-right: 7%;
+  height: 70%;
+  border-bottom-style: solid;
+  border-bottom-color: #b4b4b4;
+  align-items: center;
+  background-color: #ffffff;
+}
+.mytext{
+  color: #ffffff;
+  font-size: 70rpx;
+  font-weight: bold;
+  display:flex; 
+  padding-bottom: 100rpx;
+  justify-content:center;
 }

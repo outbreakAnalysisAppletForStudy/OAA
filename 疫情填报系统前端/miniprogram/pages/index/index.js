@@ -76,25 +76,6 @@ Page({
     })
   },
   NationInformation:function(){
-   /*wx.cloud.callFunction({
-      name: 'proxy',
-      data: {
-        // http域名 https域名 第三方域名 非验证域名 IP[:prot] 内网IP或花生壳域名
-        uri: url.url.getNationInfo,
-        method:"GET",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        qs: {
-          "token": "DEEPDARKFANTASY"
-        }
-      }
-    }).then(res => {
-      console.log(res)
-      const data = res.result
-      console.log(data)
-      // do something
-    })
     /**
      * 下面测试跳转，请删掉
     
@@ -104,7 +85,8 @@ Page({
     app.globalData.naInfo=this.data.info;
     app.globalData.dailyTextContent = this.data.dailyTextContent;
     app.globalData.incrData = this.data.incrData;
-     */
+    */
+
     //console.log(123)
     wx.request({
       url: url.url.getNationInfo,

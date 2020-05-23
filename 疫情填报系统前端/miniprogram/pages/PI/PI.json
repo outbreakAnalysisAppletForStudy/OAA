@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#f25f5c",
+  "navigationBarTitleText": "个人信息查询",
+  "navigationBarTextStyle": "black"
 }

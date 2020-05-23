@@ -1,12 +1,8 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button bindtap="AdLogIn">管理人员登陆</button>
-  </view>
-  <view class="userinfo1">
-    <button bindtap="PersonalInformation">个人信息查询</button>
-  </view>
-    <view class="userinfo2">
-    <button bindtap="NationInformation">全国信息查询</button>
-  </view>
+<view class="container1">
+  <text class="mytext">疫情填报系统</text>
+  <button bindtap="AdLogIn" class="mybutton" hover-class="mybutton-hover">管理人员登陆</button>
+  <button bindtap="PersonalInformation" class="mybutton" hover-class="mybutton-hover">个人信息查询</button>
+  <button bindtap="NationInformation" class="mybutton" hover-class="mybutton-hover">全国信息查询</button>
+  <image  class="myimage" src="/images/index.png"></image>
 </view>
